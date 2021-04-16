@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>resultStatus</title>
+    <link rel="stylesheet" href=marksstatus.css>
+</head>
+<body> 
+    <h1 >Your result Status:</h1>
+    <p id="x" style=" font-size: 20px;"> Please enters your marks in different Subjects.</p>
+    <div id="i">
+    <label for="mat">MATHS:</label>
+    <input class="common" type="number" id="mat" placeholder="Maths marks" >
+    <br>
+    <br>
+    <label for="phy" >PHYSICS:</label>
+    <input class="common" type="number" placeholder="Physic marks" id="phy">
+    <br>
+    <br>
+    <label for="bio" >BIOLOGY:</label>
+    <input  type="number" id="bio" placeholder="Biology marks"> 
+    <br>
+    <br>
+    <label for="che">CHEMISTRY:</label>
+    <input  class="common" type="number" placeholder="Chemistry marks" id="che" >  
+    <br>
+    <br>
+    <label for="hin">HINDI:</label>
+    <input  class="common" type="number" placeholder="Hindi marks" id="hin"> 
+    <label for="click"></label>
+    <br>
+    <br>
+    <input type="button"  id="click" value="SHOW RESULT"  onclick="calculatePercentage()">
+    </div>
+    <div>
+         <p id="showdata"> </p>
+     </div>
+
+     <script>
+          function calculatePercentage(){
+            
+              let m=document.getElementById("mat").value;
+              let p=document.getElementById("phy").value;
+              let b=document.getElementById("bio").value;   
+              let c=document.getElementById("che").value;
+              let h=document.getElementById("hin").value;
+              let grade=""
+            let totalMarks=parseInt(m)+parseInt(p)+parseInt(b)+parseInt(c)+parseInt(h);
+            alert("your score is "+ totalMarks )
+            debugger
+            let percentageMarks=Math.round((totalMarks/500)*100)
+            if(percentageMarks<=100 && percentageMarks>=80){
+                grade="A"
+            }
+            else if(percentageMarks<80 && percentageMarks>=60){
+                grade="B"
+            }
+            else if(percentageMarks<60 && percentageMarks>=40){
+                grade="C"
+            }
+            else{
+            grade="Fail"
+             }
+             if (percentageMarks>=40){
+                 document.getElementById("showdata").innerHTML=`Your Marks obtained out of 500 is ${totalMarks}  which is 
+                 ${percentageMarks}% and your grade is ${grade}.You pass the exam.`
+                } 
+                else{
+                    
+                 document.getElementById("showdata").innerHTML=`Your Marks obtained out of 500 is ${totalMarks}  which is 
+                 ${percentageMarks}% and your grade is ${grade}.You pass the exam.You fail the exam.`
+
+                }
+            
+        }
+     </script>
+</body>
+</html>
